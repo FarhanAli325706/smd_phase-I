@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">FitnessEnthusiast</string>
+    <string name="hello">Hello</string>
+    <string name="username">USERNAME:</string>
+    <string name="email">EMAIL:</string>
+    <string name="password">PASSWORD:</string>
+    <string name="confirm_password">CONFIRM PASSWORD:</string>
+    <string name="guideline3">3. After workout, REFUEL YOUR TANK.</string>
+    <string name="guideline3_1">a. FLUIDS: Drink water, and take other energy based fluids e.g. orange juice.</string>
+    <string name="guideline3_2">b. CARBOHYDRATES: Your body just burned a lot of carbohydrates, In 20 to 60, your body is ready to take carbohydrates and proteins to restore your energy.</string>
+    <string name="guideline3_3">c. PROTEINS: Eat things that contain protein. Protein is going to help your muscles in their repair and growth</string>
+    <string name="guideline2">2. During workout, Keep yourself hydrated with small sips of water.\ne.g. After completing one exercise, drink some water and rest for about a minute.</string>
+    <string name="guideline1">1. Before gym, FUEL yourself UP.   a. Hydrate yourself.   b. Eat Healthy Carbohydrates  c. Avoid saturated and high Protein foods. \nExample Foods: Bananas, Oats, etc.</string>
+    <string name="guidelineMoto">Like any other machine, your body needs fuel to work.</string>
+    <string name="nutrition_pic">nutrition picture</string>
+    <string name="nutrition_guidelines">NUTRITION GUIDELINES</string>
+    <string name="description">Description:</string>
+    <string name="hold_the_dumbbell_and_start_doing_it">1. Hold the dumbbell and start doing it</string>
+    <string name="title_activity_splash_screen">SplashScreen</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="q1"><b>Q1: Which is More Productive: Less Weight/More Reps or More Weight/Less Reps?</b>\n\nA: Both lifting methods offer their own distinct set of benefits. Less weight and more reps leads to better endurance and faster lean muscle growth. More weight and less reps causes larger muscles and overall higher strength. A combination of both techniques may be the most productive strategy.</string>
+</resources>

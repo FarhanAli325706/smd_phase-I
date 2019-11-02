@@ -18,7 +18,7 @@ public class ExerciseActivity extends AppCompatActivity {
 
         VideoView exerciseVideo = findViewById(R.id.exerciseVideo);
 
-        Uri uri = Uri.parse("android.resource://com.smsaz.fitnessenthusiast/"+R.raw.vid);
+        Uri uri = Uri.parse("android.resource://com.smsaz.fitnessenthusiast/"+R.raw.demo);
 
         exerciseVideo.setVideoURI(uri);
         exerciseVideo.start();

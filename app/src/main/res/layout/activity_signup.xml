@@ -58,6 +58,7 @@
                 android:drawableRight="@drawable/ic_person_black_24dp"/>
 
             <EditText
+                android:id="@+id/usernameSignup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
@@ -73,6 +74,7 @@
                 android:drawableRight="@drawable/ic_email_black_24dp"/>
 
             <EditText
+                android:id="@+id/emailSignup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
@@ -90,12 +92,13 @@
                 android:drawableRight="@drawable/ic_vpn_key_black_24dp"/>
 
             <EditText
+                android:id="@+id/passwordSignup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="25dp"
                 android:ems="10"
-                android:inputType="textVisiblePassword" />
+                android:inputType="textPassword" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -108,12 +111,13 @@
 
 
             <EditText
+                android:id="@+id/confirmPasswordSignup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="25dp"
                 android:ems="10"
-                android:inputType="textVisiblePassword" />
+                android:inputType="textPassword" />
 
             <Button
                 android:layout_width="wrap_content"

@@ -127,7 +127,7 @@
                 android:layout_marginBottom="20dp"
                 android:onClick="toLogin"
                 android:background="@drawable/button_rounded_signup"
-                android:text="SIGNUP"
+                android:text="@string/signup"
                 android:textColor="@color/white">
 
             </Button>
@@ -147,7 +147,7 @@
         android:layout_marginRight="50dp"
         android:onClick="toLogin"
         android:background="@drawable/button_rounded_login"
-        android:text="LOGIN"
+        android:text="@string/login"
         android:textColor="@color/white"
         android:textSize="20sp"
 
@@ -170,7 +170,7 @@
         android:drawableLeft="@drawable/facebook_logo"
         android:paddingLeft="40dp"
         android:paddingRight="30dp"
-        android:text="LOGIN WITH FACEBOOK"
+        android:text="@string/login_with_facebook"
         android:textColor="@color/white"
         android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -191,7 +191,7 @@
         android:drawableLeft="@drawable/gmail_logo"
         android:paddingLeft="40dp"
         android:paddingRight="30dp"
-        android:text="LOGIN WITH GMAIL"
+        android:text="@string/login_with_gmail"
         android:textColor="@color/black"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"

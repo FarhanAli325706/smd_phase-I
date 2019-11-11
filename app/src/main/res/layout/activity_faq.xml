@@ -10,7 +10,7 @@
 <TextView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:text="FAQs"
+    android:text="@string/faqs"
     android:textSize="50sp"
     android:textStyle="bold"
     android:layout_marginTop="15dp"
@@ -18,22 +18,12 @@
     android:textColor="@color/black"
     android:gravity="center_horizontal"
     />
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:elevation="4dp"
-        app:cardCornerRadius="4dp"
-        >
-        <TextView
-            android:id="@+id/q1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/q1"
-            android:padding="10dp"
 
-            android:textColor="@color/black"
-            />
-    </androidx.cardview.widget.CardView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/faqRecyclerView"
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </androidx.recyclerview.widget.RecyclerView>
 </LinearLayout>

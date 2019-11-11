@@ -20,4 +20,12 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="q1"><b>Q1: Which is More Productive: Less Weight/More Reps or More Weight/Less Reps?</b>\n\nA: Both lifting methods offer their own distinct set of benefits. Less weight and more reps leads to better endurance and faster lean muscle growth. More weight and less reps causes larger muscles and overall higher strength. A combination of both techniques may be the most productive strategy.</string>
+    <string name="exerciseName">Biceps Curl</string>
+    <string name="faqs">FAQs</string>
+    <string name="login">Login</string>
+    <string name="signup">SignUp</string>
+    <string name="guest">Guest</string>
+    <string name="registered">Registered</string>
+    <string name="login_with_gmail">LOGIN WITH GMAIL</string>
+    <string name="login_with_facebook">LOGIN WITH FACEBOOK</string>
 </resources>

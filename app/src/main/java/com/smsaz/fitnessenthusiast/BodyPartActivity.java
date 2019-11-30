@@ -1,14 +1,26 @@
 package com.smsaz.fitnessenthusiast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.widget.Toast;
+
+import com.google.android.material.navigation.NavigationView;
+import com.smsaz.fitnessenthusiast.faq.FAQActivity;
 
 import java.util.LinkedList;
 
 public class BodyPartActivity extends AppCompatActivity {
+    private DrawerLayout dl;
+    private ActionBarDrawerToggle t;
+    private NavigationView nv;
     private LinkedList<dataValues> exerciseList = new LinkedList<>();
     private LinkedList<dataValues> foreArms=new LinkedList<>();
     private LinkedList<dataValues> upperChest=new LinkedList<>();
@@ -27,6 +39,40 @@ public class BodyPartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_body_part);
+        dl = findViewById(R.id.activity_main);
+        t = new ActionBarDrawerToggle(this, dl,R.string.Open, R.string.Close);
+        t.setDrawerIndicatorEnabled(true);
+        dl.addDrawerListener(t);
+        t.syncState();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        nv = findViewById(R.id.nv);
+        nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+                Intent intent=null;
+                switch(id)
+                {
+                    case R.id.guideline:
+                        intent=new Intent(BodyPartActivity.this,NutritionGuidelines.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.faqs:
+                        intent=new Intent(BodyPartActivity.this, FAQActivity.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.reminder:
+                        Toast.makeText(BodyPartActivity.this, "My Cart",Toast.LENGTH_SHORT).show();
+                        break;
+                    default:
+                        return true;
+                }
+
+
+                return true;
+
+            }
+        });
         getIncomingIntent();
     }
     private void getIncomingIntent()
@@ -490,5 +536,13 @@ public class BodyPartActivity extends AppCompatActivity {
         ExerciseRecyclerView.setAdapter(exercise_Adapter);
         // Give the RecyclerView a default layout manager.
         ExerciseRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if(t.onOptionsItemSelected(item))
+            return true;
+
+        return super.onOptionsItemSelected(item);
     }
 }

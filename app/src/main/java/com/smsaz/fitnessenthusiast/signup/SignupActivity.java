@@ -1,4 +1,4 @@
-package com.smsaz.fitnessenthusiast;
+package com.smsaz.fitnessenthusiast.signup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,9 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.smsaz.fitnessenthusiast.login.view.LoginActivity;
+import com.smsaz.fitnessenthusiast.R;
 
 public class SignupActivity extends AppCompatActivity {
 
@@ -35,7 +38,7 @@ public class SignupActivity extends AppCompatActivity {
             Toast.makeText(this, "All fields must be filled!", Toast.LENGTH_SHORT).show();
         } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             Toast.makeText(this, "Enter a valid Email", Toast.LENGTH_SHORT).show();
-        } else if (!password.matches(confirmPassword)){
+        } else if (!password.matches(confirmPassword)) {
             Toast.makeText(this, "Password Mismatch", Toast.LENGTH_SHORT).show();
         } else {
             startActivity(intent);

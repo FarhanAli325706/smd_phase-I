@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.smsaz.fitnessenthusiast.login.view.LoginActivity;
+
 public class MainScreen extends AppCompatActivity {
 
     @Override
@@ -15,7 +17,7 @@ public class MainScreen extends AppCompatActivity {
     }
 
     public void toLogin(View view) {
-        Intent intent=new Intent(this,LoginActivity.class);
+        Intent intent=new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
 

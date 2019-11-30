@@ -28,4 +28,6 @@
     <string name="registered">Registered</string>
     <string name="login_with_gmail">LOGIN WITH GMAIL</string>
     <string name="login_with_facebook">LOGIN WITH FACEBOOK</string>
+    <string name="update_profile">UPDATE PROFILE</string>
+    <string name="update">Update</string>
 </resources>

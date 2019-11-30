@@ -1,10 +1,12 @@
-package com.smsaz.fitnessenthusiast;
+package com.smsaz.fitnessenthusiast.faq;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+
+import com.smsaz.fitnessenthusiast.R;
 
 import java.util.LinkedList;
 

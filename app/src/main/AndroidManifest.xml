@@ -11,14 +11,22 @@
         android:theme="@style/AppTheme"
         >
         <activity android:name=".UserEditScreenActivity"></activity>
-        <activity android:name=".faq.FAQActivity"></activity>
+        <activity android:name=".faq.FAQActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ExercieList" />
+        </activity>
         <activity android:name=".BodyPartActivity" />
         <activity android:name=".ExercieList" />
         <activity
             android:name=".ExerciseActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
-        <activity android:name=".NutritionGuidelines" />
+        <activity android:name=".NutritionGuidelines" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ExercieList" />
+        </activity>
         <activity android:name=".MainScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

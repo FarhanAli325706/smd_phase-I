@@ -17,6 +17,8 @@ import com.smsaz.fitnessenthusiast.signup.SignupActivity;
 
 public class LoginActivity extends AppCompatActivity implements ILoginActivity {
 
+    //TODO: Implement Back Button in Login Activity
+
     private Intent exerciesIntent;
     private LoginPresenter loginPresenter;
     private LoginModel loginModel;

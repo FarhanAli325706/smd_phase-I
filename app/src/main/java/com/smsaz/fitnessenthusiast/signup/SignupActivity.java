@@ -14,6 +14,8 @@ import com.smsaz.fitnessenthusiast.R;
 
 public class SignupActivity extends AppCompatActivity {
 
+    //TODO: Implement Back Button in Signup Activity
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

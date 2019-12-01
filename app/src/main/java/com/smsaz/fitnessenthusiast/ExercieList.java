@@ -40,6 +40,9 @@ public class ExercieList extends AppCompatActivity {
         t.setDrawerIndicatorEnabled(true);
         dl.addDrawerListener(t);
         t.syncState();
+
+        // TODO: 12/1/2019 LOGOUT BUTTON IMPLEMENTATION if their is a user logged in 
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         nv = findViewById(R.id.nv);
         nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {

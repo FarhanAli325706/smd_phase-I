@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "451593523059-tmpieebhsccva3a6m0era81l1ke1rfl0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.smsaz.fitnessenthusiast",
+            "certificate_hash": "9e40dd574174f81a85b9e7dc97e72479327053b1"
+          }
+        },
+        {
           "client_id": "451593523059-qjo52hpjl29dalrutgs52apfhft9mnaq.apps.googleusercontent.com",
           "client_type": 3
         }

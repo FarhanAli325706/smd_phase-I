@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.facebook.login.LoginManager;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -108,7 +109,8 @@ public class ExercieList extends AppCompatActivity {
         if (t.onOptionsItemSelected(item))
             return true;
         if (id == R.id.sign_out) {
-            firebaseAuth.signOut();
+            FirebaseAuth.getInstance().signOut();
+            LoginManager.getInstance().logOut();
             startActivity(new Intent(ExercieList.this, MainScreen.class));
         }
 

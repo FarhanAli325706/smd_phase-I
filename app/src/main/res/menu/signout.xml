@@ -3,9 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_name"
+        android:id="@+id/sign_out"
         android:icon="@drawable/signout"
-        android:title="LOGOUT"
+        android:title="@string/logout"
         app:showAsAction="always"
         android:orderInCategory="0"/>
+
 </menu>

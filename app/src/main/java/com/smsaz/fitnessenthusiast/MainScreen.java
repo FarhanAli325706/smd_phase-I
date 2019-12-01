@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
 import com.smsaz.fitnessenthusiast.login.view.LoginActivity;
 
 public class MainScreen extends AppCompatActivity {

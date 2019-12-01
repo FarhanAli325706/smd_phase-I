@@ -23,8 +23,6 @@ public class LoginModel {
 
     public void authenticate(String username, String password) {
 
-        //TODO: Get data from database and check.
-
         firebaseAuth.signInWithEmailAndPassword(username, password).
                 addOnCompleteListener(new OnCompleteListener<AuthResult>() {
 

@@ -131,7 +131,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
-        <Button
+        <com.facebook.login.widget.LoginButton
             android:id="@+id/facebook_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

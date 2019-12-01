@@ -38,4 +38,6 @@ dependencies {
     implementation 'com.android.support:design:X.X.X'
     implementation 'com.google.android.gms:play-services-auth:17.0.0'
     implementation 'com.google.firebase:firebase-auth:19.2.0'
+
+    implementation 'com.facebook.android:facebook-android-sdk:[5,6)'
 }

@@ -1,7 +1,6 @@
 package com.smsaz.fitnessenthusiast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -10,10 +9,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.smsaz.fitnessenthusiast.faq.FAQActivity;
 
 import java.util.LinkedList;
@@ -22,7 +24,9 @@ import java.util.List;
 public class ExercieList extends AppCompatActivity {
 
     // TODO: 12/1/2019 put onClickListener on exercise layout
-    // TODO: 12/1/2019 put current user in share preferences and cache and check for already signed in user in onStart of app
+    // TODO: 12/1/2019 put current user in shared preferences and cache and check for already signed in user in onStart of app
+
+    private FirebaseAuth firebaseAuth;
 
     private DrawerLayout dl;
     private ActionBarDrawerToggle t;
@@ -41,7 +45,7 @@ public class ExercieList extends AppCompatActivity {
         dl.addDrawerListener(t);
         t.syncState();
 
-        // TODO: 12/1/2019 LOGOUT BUTTON IMPLEMENTATION if their is a user logged in 
+        // TODO: 12/1/2019 LOGOUT BUTTON IMPLEMENTATION if their is a user logged in
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         nv = findViewById(R.id.nv);
@@ -87,10 +91,26 @@ public class ExercieList extends AppCompatActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        firebaseAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+        if (currentUser != null)
+            getMenuInflater().inflate(R.menu.signout, menu);
+        return true;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
+        int id = item.getItemId();
+//        if(id == R.id.sign)
         if (t.onOptionsItemSelected(item))
             return true;
+        if (id == R.id.sign_out) {
+            firebaseAuth.signOut();
+            startActivity(new Intent(ExercieList.this, MainScreen.class));
+        }
 
         return super.onOptionsItemSelected(item);
     }

@@ -19,11 +19,11 @@ public class LoginPresenter implements ILoginPresenter{
     }
 
     @Override
-    public void validated(boolean result) {
+    public void validated(boolean result, String message) {
         if(result){
             loginActivity.goToExercises();
         } else {
-            loginActivity.showErrorToast();
+            loginActivity.showErrorToast(message);
         }
     }
 }

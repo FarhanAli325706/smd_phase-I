@@ -21,6 +21,8 @@ import java.util.List;
 
 public class ExercieList extends AppCompatActivity {
 
+    // TODO: 12/1/2019 put onClickListener on exercise layout
+
     private DrawerLayout dl;
     private ActionBarDrawerToggle t;
     private NavigationView nv;

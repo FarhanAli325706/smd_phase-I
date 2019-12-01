@@ -22,6 +22,7 @@ import java.util.List;
 public class ExercieList extends AppCompatActivity {
 
     // TODO: 12/1/2019 put onClickListener on exercise layout
+    // TODO: 12/1/2019 put current user in share preferences and cache and check for already signed in user in onStart of app
 
     private DrawerLayout dl;
     private ActionBarDrawerToggle t;
@@ -29,12 +30,13 @@ public class ExercieList extends AppCompatActivity {
     private final LinkedList<dataValues> exerciseList = new LinkedList<>();
     private RecyclerView ExerciseRecyclerView;
     private ExerciseAdapter exercise_Adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercie_list);
         dl = findViewById(R.id.activity_main);
-        t = new ActionBarDrawerToggle(this, dl,R.string.Open, R.string.Close);
+        t = new ActionBarDrawerToggle(this, dl, R.string.Open, R.string.Close);
         t.setDrawerIndicatorEnabled(true);
         dl.addDrawerListener(t);
         t.syncState();
@@ -44,19 +46,18 @@ public class ExercieList extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
-                Intent intent=null;
-                switch(id)
-                {
+                Intent intent = null;
+                switch (id) {
                     case R.id.guideline:
-                        intent=new Intent(ExercieList.this,NutritionGuidelines.class);
+                        intent = new Intent(ExercieList.this, NutritionGuidelines.class);
                         startActivity(intent);
                         break;
                     case R.id.faqs:
-                        intent=new Intent(ExercieList.this, FAQActivity.class);
+                        intent = new Intent(ExercieList.this, FAQActivity.class);
                         startActivity(intent);
                         break;
                     case R.id.reminder:
-                        Toast.makeText(ExercieList.this, "My Cart",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ExercieList.this, "My Cart", Toast.LENGTH_SHORT).show();
                         break;
                     default:
                         return true;
@@ -68,10 +69,10 @@ public class ExercieList extends AppCompatActivity {
             }
         });
 
-        String[] names={"ARMS","CHEST","SHOULDERS","COLLARS","LEGS","WINGS","ABS"};
-        int[] images={R.drawable.arms,R.drawable.chest,R.drawable.shoulders,R.drawable.collars,R.drawable.legs,R.drawable.wings,R.drawable.abs};
-        for(int i=0;i<7;i++)
-            this.exerciseList.add(new dataValues(names[i],images[i]));
+        String[] names = {"ARMS", "CHEST", "SHOULDERS", "COLLARS", "LEGS", "WINGS", "ABS"};
+        int[] images = {R.drawable.arms, R.drawable.chest, R.drawable.shoulders, R.drawable.collars, R.drawable.legs, R.drawable.wings, R.drawable.abs};
+        for (int i = 0; i < 7; i++)
+            this.exerciseList.add(new dataValues(names[i], images[i]));
         // Get a handle to the RecyclerView.
         ExerciseRecyclerView = findViewById(R.id.exercise_list);
         // Create an adapter and supply the data to be displayed.
@@ -81,10 +82,11 @@ public class ExercieList extends AppCompatActivity {
         // Give the RecyclerView a default layout manager.
         ExerciseRecyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        if(t.onOptionsItemSelected(item))
+        if (t.onOptionsItemSelected(item))
             return true;
 
         return super.onOptionsItemSelected(item);

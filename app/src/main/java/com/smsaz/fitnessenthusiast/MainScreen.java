@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.servicemusicplayer.MusicPlayerService;
+import com.facebook.stetho.Stetho;
 import com.smsaz.fitnessenthusiast.login.view.LoginActivity;
+import com.smsaz.retrofit_communication.RetrofitCommunicator;
 
 public class MainScreen extends AppCompatActivity {
 
@@ -16,7 +18,12 @@ public class MainScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
         this.getSupportActionBar().hide();
+        // TODO: 12/2/2019 Change title name of each activity
 
+        Stetho.initializeWithDefaults(this);
+
+        RetrofitCommunicator retrofitCommunicator = new RetrofitCommunicator();
+        retrofitCommunicator.startCommunication(getBaseContext());
     }
 
     @Override

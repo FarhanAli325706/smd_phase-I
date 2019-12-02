@@ -27,6 +27,9 @@ public class SetReminder extends AppCompatActivity {
     private static final int NOTIFICATION_ID = 0;
     private static final String PRIMARY_CHANNEL_ID =
             "primary_notification_channel";
+
+    // TODO: 12/3/2019 Add second field in set reminder activity 
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

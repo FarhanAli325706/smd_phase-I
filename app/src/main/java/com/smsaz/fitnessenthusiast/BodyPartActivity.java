@@ -1,5 +1,6 @@
 package com.smsaz.fitnessenthusiast;
-
+//TODO implement back button in exercise activity and solve white screen bug
+//TODO Dumbbell raise complex video
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -87,6 +88,162 @@ public class BodyPartActivity extends AppCompatActivity {
             {
                 Arms();
             }
+            if(exercise_name.equals("DUMBBELL BICEP CURL"))
+            {
+                dumbbellBicepCurl();
+            }
+            if(exercise_name.equals("HAMER CURL"))
+            {
+                hamerCurl();
+            }
+            if(exercise_name.equals("STANDING BARBELL CURL"))
+            {
+                standingBarbellCurl();
+            }
+            if(exercise_name.equals("OVERHEAD CABLE CURL"))
+            {
+                overHeadCableCurl();
+            }
+            if(exercise_name.equals("DUMBBELL PREACHER CURL"))
+            {
+                dumbbellPreacherCurl();
+            }
+
+            if(exercise_name.equals("CLOSE-GRIP BENCH PRESS"))
+            {
+                closeGripBenchPress();
+            }
+            if(exercise_name.equals("SKULL CRUSHERS"))
+            {
+                skullCrushers();
+            }
+            if(exercise_name.equals("ROPE TRICEPS PUSH DOWN"))
+            {
+                ropeTricepsPushDown();
+            }
+            if(exercise_name.equals("DUMBBELL OVERHEAD TRICEPS EXTENSION"))
+            {
+                dumbbellOverheadTricepsExtension();
+            }
+            if(exercise_name.equals("UNDERHAND KICKBACK"))
+            {
+                underhandKickback();
+            }
+            if(exercise_name.equals("REVERSE CURL"))
+            {
+                reverseCurl();
+            }
+            if(exercise_name.equals("WRIST CURL"))
+            {
+                wristCurl();
+            }
+            if(exercise_name.equals("REVERSE WRIST CURL"))
+            {
+                reverseWristCurl();
+            }
+
+            if(exercise_name.equals("INCLINE BARBELL BENCH PRESS"))
+            {
+                inclineBarbellBenchPress();
+            }
+            if(exercise_name.equals("INCLINE DUMBBELL BENCH PRESS"))
+            {
+                inclineDumbbellBenchPress();
+            }
+            if(exercise_name.equals("UPPER CABLE CROSSOVER"))
+            {
+                upperCableCrossover();
+            }
+            if(exercise_name.equals("INCLINE DUMBBELL FLY"))
+            {
+                inclineDumbbellFly();
+            }
+            if(exercise_name.equals("UPPER CHEST PRESS MACHINE"))
+            {
+                upperChestPressMachine();
+            }
+            if(exercise_name.equals("BARBELL BENCH PRESS"))
+            {
+                barbellBechPress();
+            }
+            if(exercise_name.equals("DUMBBELL BENCH PRESS"))
+            {
+                dumbbleBenchPress();
+            }
+            if(exercise_name.equals("CABLE CROSSOVER"))
+            {
+                cableCrossover();
+            }
+            if(exercise_name.equals("DUMBBELL FLY"))
+            {
+                dumbbellFly();
+            }
+            if(exercise_name.equals("CHEST PRESS MACHINE"))
+            {
+                chestPressMachine();
+            }
+
+            if(exercise_name.equals("DECLINE BARBELL BENCH PRESS"))
+            {
+                declineBarbellBenchPress();
+            }
+            if(exercise_name.equals("DECLINE DUMBBELL BENCH PRESS"))
+            {
+                declineDumbbellBenchPress();
+            }
+            if(exercise_name.equals("PULL OVER"))
+            {
+                pullOver();
+            }
+            if(exercise_name.equals("LOWER CABLE CROSSOVER"))
+            {
+                lowerCableCrossover();
+            }
+            if(exercise_name.equals("LOW DUMBBELL CROSOVER"))
+            {
+                lowDumbbellCrossover();
+            }
+
+            if(exercise_name.equals("BARBELL OVERHEAD PRESS"))
+            {
+                barbellOverheadPress();
+            }
+            if(exercise_name.equals("FACE PULL"))
+            {
+                facePull();
+            }
+            if(exercise_name.equals("SEATED DUMBBELL CLEAN"))
+            {
+                seatedDumbbellClean();
+            }
+            if(exercise_name.equals("MACHINE FRONT SHOULDER PRESS"))
+            {
+                machineFrontShoulderPress();
+            }
+
+
+            if(exercise_name.equals("DUMBBELL RAISE COMPLEX"))
+            {
+                dumbbellRaiseComplex();
+            }
+            if(exercise_name.equals("DUMBBELL BENT-OVER LATERAL RAISE"))
+            {
+                dumbbellBentoverLateralRaise();
+            }
+            if(exercise_name.equals("MACHINE BACK SHOULDER PRESS"))
+            {
+                machineBackShoulderPress();
+            }
+            //STANDING DUMBBELL FLY","SEATED DUMBBELL CLEAN","SINGLE ARM LEANING AWAY LATERAL RAISE
+            if(exercise_name.equals("SEATED DUMBBELL FLY"))
+            {
+                seatedDumbbleFly();
+            }
+            if(exercise_name.equals("SINGLE ARM LEANING AWAY LATERAL RAISE"))
+            {
+                singleArmLeaningAwayLateralRaise();
+            }
+
             if(exercise_name.equals("CHEST"))
             {
                 Chest();
@@ -180,6 +337,302 @@ public class BodyPartActivity extends AppCompatActivity {
                 loveHandles();
             }
         }
+    }
+
+    private void singleArmLeaningAwayLateralRaise() {
+        Intent intent=new Intent(this,ExerciseActivity.class);
+        intent.putExtra("e_name","SINGLE ARM LEANING AWAYA LATERAL RAISE");
+        intent.putExtra("e_description","hold the dummbbell and start doing it");
+        intent.putExtra("e_video",R.raw.single_arm_leaning_away_lateral_raise);
+        startActivity(intent);
+    }
+
+    private void seatedDumbbleFly() {
+        Intent intent=new Intent(this,ExerciseActivity.class);
+        intent.putExtra("e_name","SEATED DUMBBELL FLY");
+        intent.putExtra("e_description","hold the dummbbell and start doing it");
+        intent.putExtra("e_video",R.raw.seated_dumbell_fly);
+        startActivity(intent);
+    }
+
+    private void machineBackShoulderPress() {
+        Intent intent=new Intent(this,ExerciseActivity.class);
+        intent.putExtra("e_name","MACHINE BACK SHOULDER PRESS");
+        intent.putExtra("e_description","hold the dummbbell and start doing it");
+        intent.putExtra("e_video",R.raw.machine_back_shoulder_press);
+        startActivity(intent);
+    }
+
+    private void dumbbellBentoverLateralRaise() {
+        Intent intent=new Intent(this,ExerciseActivity.class);
+        intent.putExtra("e_name","DUMBBELL BENTOVER LATERAL RAISE");
+        intent.putExtra("e_description","hold the dummbbell and start doing it");
+        intent.putExtra("e_video",R.raw.dumbell_bent_over_lateral_raise);
+        startActivity(intent);
+    }
+
+    private void dumbbellRaiseComplex() {
+        Intent intent=new Intent(this,ExerciseActivity.class);
+        intent.putExtra("e_name","DUMBBELL RAISE COMPLEX");
+        intent.putExtra("e_description","hold the dummbbell and start doing it");
+        intent.putExtra("e_video",R.raw.dumbell_bent_over_lateral_raise);
+        startActivity(intent);
+    }
+
+    private void machineFrontShoulderPress() {
+        Intent intent=new Intent(this,ExerciseActivity.class);
+        intent.putExtra("e_name","MACHINE FRONT SHOULDER PRESS");
+        intent.putExtra("e_description","hold the dummbbell and start doing it");
+        intent.putExtra("e_video",R.raw.machine_front_shoulder_press);
+        startActivity(intent);
+    }
+
+    private void seatedDumbbellClean() {
+        Intent intent=new Intent(this,ExerciseActivity.class);
+        intent.putExtra("e_name","SEATED DUMBBELL CLEAN");
+        intent.putExtra("e_description","hold the dummbbell and start doing it");
+        intent.putExtra("e_video",R.raw.seated_dumbell_clean);
+        startActivity(intent);
+    }
+
+    private void facePull() {
+        Intent intent=new Intent(this,ExerciseActivity.class);
+        intent.putExtra("e_name","FACE PULL");
+        intent.putExtra("e_description","hold the dummbbell and start doing it");
+        intent.putExtra("e_video",R.raw.face_pull);
+        startActivity(intent);
+    }
+
+    private void barbellOverheadPress() {
+        Intent intent=new Intent(this,ExerciseActivity.class);
+        intent.putExtra("e_name","BARBELL OVERHEAD PRESS");
+        intent.putExtra("e_description","hold the dummbbell and start doing it");
+        intent.putExtra("e_video",R.raw.barbell_overhead_press);
+        startActivity(intent);
+    }
+
+    private void lowDumbbellCrossover() {
+        Intent intent=new Intent(this,ExerciseActivity.class);
+        intent.putExtra("e_name","LOW DUMBBELL CROSSOVER");
+        intent.putExtra("e_description","hold the dummbbell and start doing it");
+        intent.putExtra("e_video",R.raw.low_dumbell_crossover);
+        startActivity(intent);
+    }
+
+    private void lowerCableCrossover() {
+        Intent intent=new Intent(this,ExerciseActivity.class);
+        intent.putExtra("e_name","LOWER CABLE CROSSOVER");
+        intent.putExtra("e_description","hold the dummbbell and start doing it");
+        intent.putExtra("e_video",R.raw.lower_cable_crossover);
+        startActivity(intent);
+    }
+
+    private void pullOver() {
+        Intent intent=new Intent(this,ExerciseActivity.class);
+        intent.putExtra("e_name","PULL OVER");
+        intent.putExtra("e_description","hold the dummbbell and start doing it");
+        intent.putExtra("e_video",R.raw.pull_over);
+        startActivity(intent);
+    }
+
+    private void declineDumbbellBenchPress() {
+        Intent intent=new Intent(this,ExerciseActivity.class);
+        intent.putExtra("e_name","DECLINE DUMBBELL BENCH PRESS");
+        intent.putExtra("e_description","hold the dummbbell and start doing it");
+        intent.putExtra("e_video",R.raw.decline_dumbell_bench_press);
+        startActivity(intent);
+    }
+
+    private void declineBarbellBenchPress() {
+        Intent intent=new Intent(this,ExerciseActivity.class);
+        intent.putExtra("e_name","DECLINE BARBELL BENCH PRESS");
+        intent.putExtra("e_description","hold the dummbbell and start doing it");
+        intent.putExtra("e_video",R.raw.decline_barbell_bench_press);
+        startActivity(intent);
+    }
+
+    private void chestPressMachine() {
+        Intent intent=new Intent(this,ExerciseActivity.class);
+        intent.putExtra("e_name","CHEST PRESS MACHINE");
+        intent.putExtra("e_description","hold the dummbbell and start doing it");
+        intent.putExtra("e_video",R.raw.chest_press_machine);
+        startActivity(intent);
+    }
+
+    private void dumbbellFly() {
+        Intent intent=new Intent(this,ExerciseActivity.class);
+        intent.putExtra("e_name","DUMBBLE FLY");
+        intent.putExtra("e_description","hold the dummbbell and start doing it");
+        intent.putExtra("e_video",R.raw.dumbell_fly);
+        startActivity(intent);
+    }
+
+    private void cableCrossover() {
+        Intent intent=new Intent(this,ExerciseActivity.class);
+        intent.putExtra("e_name","CABLE CROSSOVER");
+        intent.putExtra("e_description","hold the dummbbell and start doing it");
+        intent.putExtra("e_video",R.raw.cable_crossover);
+        startActivity(intent);
+    }
+
+    private void dumbbleBenchPress() {
+        Intent intent=new Intent(this,ExerciseActivity.class);
+        intent.putExtra("e_name","DUMBBLE BENCH PRESS");
+        intent.putExtra("e_description","hold the dummbbell and start doing it");
+        intent.putExtra("e_video",R.raw.dumbell_bench_press);
+        startActivity(intent);
+    }
+
+    private void barbellBechPress() {
+        Intent intent=new Intent(this,ExerciseActivity.class);
+        intent.putExtra("e_name","BARBELL BENCH PRESS");
+        intent.putExtra("e_description","hold the dummbbell and start doing it");
+        intent.putExtra("e_video",R.raw.barbell_bench_press);
+        startActivity(intent);
+    }
+
+    private void upperChestPressMachine() {
+        Intent intent=new Intent(this,ExerciseActivity.class);
+        intent.putExtra("e_name","UPPER CHEST PRESS MACHINE");
+        intent.putExtra("e_description","hold the dummbbell and start doing it");
+        intent.putExtra("e_video",R.raw.upper_chest_press_machine);
+        startActivity(intent);
+    }
+
+    private void inclineDumbbellFly() {
+        Intent intent=new Intent(this,ExerciseActivity.class);
+        intent.putExtra("e_name","INCLINE DUMBBELL FLY");
+        intent.putExtra("e_description","hold the dummbbell and start doing it");
+        intent.putExtra("e_video",R.raw.incline_dumbell_fly);
+        startActivity(intent);
+    }
+
+    private void upperCableCrossover() {
+        Intent intent=new Intent(this,ExerciseActivity.class);
+        intent.putExtra("e_name","UPPER CABLE CROSSOVER");
+        intent.putExtra("e_description","hold the dummbbell and start doing it");
+        intent.putExtra("e_video",R.raw.upper_cable_crossover);
+        startActivity(intent);
+    }
+
+    private void inclineBarbellBenchPress() {
+        Intent intent=new Intent(this,ExerciseActivity.class);
+        intent.putExtra("e_name","INCLINE BARBELL BENCH PRESS");
+        intent.putExtra("e_description","hold the dummbbell and start doing it");
+        intent.putExtra("e_video",R.raw.incline_barbell_bench_press);
+        startActivity(intent);
+    }
+
+    private void inclineDumbbellBenchPress() {
+        Intent intent=new Intent(this,ExerciseActivity.class);
+        intent.putExtra("e_name","INCLINE DUMBELL BENCH PRESS");
+        intent.putExtra("e_description","hold the dummbbell and start doing it");
+        intent.putExtra("e_video",R.raw.incline_dumbell_bench_press);
+        startActivity(intent);
+    }
+
+    private void reverseWristCurl() {
+        Intent intent=new Intent(this,ExerciseActivity.class);
+        intent.putExtra("e_name","REVERSE WRIST CURL");
+        intent.putExtra("e_description","hold the dummbbell and start doing it");
+        intent.putExtra("e_video",R.raw.reverse_wrist_curl);
+        startActivity(intent);
+    }
+
+    private void wristCurl() {
+        Intent intent=new Intent(this,ExerciseActivity.class);
+        intent.putExtra("e_name","WRIST CURL");
+        intent.putExtra("e_description","hold the dummbbell and start doing it");
+        intent.putExtra("e_video",R.raw.wrist_curl);
+        startActivity(intent);
+    }
+
+    private void reverseCurl() {
+        Intent intent=new Intent(this,ExerciseActivity.class);
+        intent.putExtra("e_name","REVERSE CURL");
+        intent.putExtra("e_description","hold the dummbbell and start doing it");
+        intent.putExtra("e_video",R.raw.reverse_curl);
+        startActivity(intent);
+    }
+
+    private void underhandKickback() {
+        Intent intent=new Intent(this,ExerciseActivity.class);
+        intent.putExtra("e_name","UNDERHAND KICKBACK");
+        intent.putExtra("e_description","hold the dummbbell and start doing it");
+        intent.putExtra("e_video",R.raw.underhand_kickback);
+        startActivity(intent);
+    }
+
+    private void dumbbellOverheadTricepsExtension() {
+        Intent intent=new Intent(this,ExerciseActivity.class);
+        intent.putExtra("e_name","DUMBBELL OVERHEAD TRICEPS EXTENSION");
+        intent.putExtra("e_description","hold the dummbbell and start doing it");
+        intent.putExtra("e_video",R.raw.dumbell_overhead_triceps_extension);
+        startActivity(intent);
+    }
+
+    private void ropeTricepsPushDown() {
+        Intent intent=new Intent(this,ExerciseActivity.class);
+        intent.putExtra("e_name","ROPE TRICEPS PUSHDOWN");
+        intent.putExtra("e_description","hold the dummbbell and start doing it");
+        intent.putExtra("e_video",R.raw.rope_triceps_pushdown);
+        startActivity(intent);
+    }
+
+    private void skullCrushers() {
+        Intent intent=new Intent(this,ExerciseActivity.class);
+        intent.putExtra("e_name","SKULL CRUSHERS");
+        intent.putExtra("e_description","hold the dummbbell and start doing it");
+        intent.putExtra("e_video",R.raw.skull_crushers);
+        startActivity(intent);
+    }
+
+    private void closeGripBenchPress() {
+        Intent intent=new Intent(this,ExerciseActivity.class);
+        intent.putExtra("e_name","CLOSE-GRIP BENCH PRESS");
+        intent.putExtra("e_description","hold the dummbbell and start doing it");
+        intent.putExtra("e_video",R.raw.close_grip_bench_press);
+        startActivity(intent);
+    }
+
+    private void dumbbellPreacherCurl() {
+        Intent intent=new Intent(this,ExerciseActivity.class);
+        intent.putExtra("e_name","DUMBBELL PREACHER CURL");
+        intent.putExtra("e_description","hold the dummbbell and start doing it");
+        intent.putExtra("e_video",R.raw.dumbell_preacher_curl);
+        startActivity(intent);
+    }
+
+    private void overHeadCableCurl() {
+        Intent intent=new Intent(this,ExerciseActivity.class);
+        intent.putExtra("e_name","OVERHEAD CURL");
+        intent.putExtra("e_description","hold the dummbbell and start doing it");
+        intent.putExtra("e_video",R.raw.overhead_cable_curl);
+        startActivity(intent);
+    }
+
+    private void standingBarbellCurl() {
+        Intent intent=new Intent(this,ExerciseActivity.class);
+        intent.putExtra("e_name","STANDING BARBELL CURL");
+        intent.putExtra("e_description","hold the dummbbell and start doing it");
+        intent.putExtra("e_video",R.raw.standing_barbell_curl);
+        startActivity(intent);
+    }
+
+    private void hamerCurl() {
+        Intent intent=new Intent(this,ExerciseActivity.class);
+        intent.putExtra("e_name","HAMER CURL");
+        intent.putExtra("e_description","hold the dummbbell and start doing it");
+        intent.putExtra("e_video",R.raw.hammer_curl);
+        startActivity(intent);
+    }
+
+    private void dumbbellBicepCurl() {
+        Intent intent=new Intent(this,ExerciseActivity.class);
+        intent.putExtra("e_name","DUMBBELL BICEP CURL");
+        intent.putExtra("e_description","hold the dummbbell and start doing it");
+        intent.putExtra("e_video",R.raw.dumbell_bicep_curl);
+        startActivity(intent);
     }
 
     private void upperAbs() {
@@ -315,7 +768,7 @@ public class BodyPartActivity extends AppCompatActivity {
     }
 
     private void lateralDeltoid() {
-        String[] names={"STANDING DUMBBELL FLY","SEATED DUMBBELL CLEAN","SINGLE ARM LEANING AWAY LATERAL RAISE"};
+        String[] names={"SEATED DUMBBELL FLY","SEATED DUMBBELL CLEAN","SINGLE ARM LEANING AWAY LATERAL RAISE"};
         int[] images={R.drawable.demo_pic,R.drawable.demo_pic,R.drawable.demo_pic};
         for(int i=0;i<3;i++)
             this.lateralDeltoid.add(new dataValues(names[i],images[i]));
@@ -345,7 +798,7 @@ public class BodyPartActivity extends AppCompatActivity {
     }
 
     private void frontShoulders() {
-        String[] names={"Barbell Overhead Press","Face Pull","SEATED DUMBBELL CLEAN","MACHINE FRONT SHOULDER PRESS"};
+        String[] names={"BARBELL OVERHEAD PRESS","FACE PULL","SEATED DUMBBELL CLEAN","MACHINE FRONT SHOULDER PRESS"};
         int[] images={R.drawable.demo_pic,R.drawable.demo_pic,R.drawable.demo_pic,R.drawable.demo_pic};
         for(int i=0;i<4;i++)
             this.frontShoulders.add(new dataValues(names[i],images[i]));
@@ -496,7 +949,7 @@ public class BodyPartActivity extends AppCompatActivity {
     }
     public void Biceps()
     {
-        String[] names={"DUMBBELL BICEP CURL","HAMER CURL","STANDING BARBELL CURL","OVERHEAD CABLE CURL","EX-BAR PREACHER CURL"};
+        String[] names={"DUMBBELL BICEP CURL","HAMER CURL","STANDING BARBELL CURL","OVERHEAD CABLE CURL","DUMBBELL PREACHER CURL"};
         int[] images={R.drawable.demo_pic,R.drawable.demo_pic,R.drawable.demo_pic,R.drawable.demo_pic,R.drawable.demo_pic};
         for(int i=0;i<5;i++)
             this.exerciseList.add(new dataValues(names[i],images[i]));

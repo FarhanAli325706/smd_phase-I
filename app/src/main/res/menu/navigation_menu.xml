@@ -3,12 +3,14 @@
 
     <item android:id="@+id/guideline"
         android:icon="@drawable/nutrition_guidelines"
-        android:title="Nutrition Guidelines"/>
+        android:title="@string/nutrition_guidelines"/>
     <item android:id="@+id/faqs"
         android:icon="@drawable/faqs"
-        android:title="FAQ"/>
+        android:title="@string/faq"/>
     <item android:id="@+id/reminder"
         android:icon="@drawable/reminder"
-        android:title="Set Reminder"/>
-
+        android:title="@string/set_reminder"/>
+    <item android:id="@+id/crashButton"
+        android:icon="@drawable/ic_close_black_24dp"
+        android:title="@string/crash_app"/>
 </menu>

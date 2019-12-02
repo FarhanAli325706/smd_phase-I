@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "451593523059",
+    "firebase_url": "https://fitnessenthusiastandroidapp.firebaseio.com",
+    "project_id": "fitnessenthusiastandroidapp",
+    "storage_bucket": "fitnessenthusiastandroidapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:451593523059:android:87d1edb4028563f7b9bf06",
+        "android_client_info": {
+          "package_name": "com.smsaz.fitnessenthusiast"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "451593523059-tmpieebhsccva3a6m0era81l1ke1rfl0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.smsaz.fitnessenthusiast",
+            "certificate_hash": "9e40dd574174f81a85b9e7dc97e72479327053b1"
+          }
+        },
+        {
+          "client_id": "451593523059-qjo52hpjl29dalrutgs52apfhft9mnaq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBC_Dl_iX-P4NAj9Cpj8Vqf3d8nbBDMWos"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "451593523059-qjo52hpjl29dalrutgs52apfhft9mnaq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

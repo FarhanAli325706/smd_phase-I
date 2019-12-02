@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':retrofit_communication', ':room_database'
 rootProject.name='FitnessEnthusiast'

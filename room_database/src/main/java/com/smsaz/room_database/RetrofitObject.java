@@ -16,7 +16,7 @@ public class RetrofitObject {
     private int statusCode;
 
     @ColumnInfo(name = "app_version")
-    private float appVersion;
+    private double appVersion;
 
     private String app_meta_data;
 
@@ -36,11 +36,11 @@ public class RetrofitObject {
         this.statusCode = statusCode;
     }
 
-    public float getAppVersion() {
+    public double getAppVersion() {
         return appVersion;
     }
 
-    public void setAppVersion(float appVersion) {
+    public void setAppVersion(double appVersion) {
         this.appVersion = appVersion;
     }
 

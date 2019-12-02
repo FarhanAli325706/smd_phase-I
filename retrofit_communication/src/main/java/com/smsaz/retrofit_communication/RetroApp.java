@@ -3,21 +3,22 @@ package com.smsaz.retrofit_communication;
 import com.google.gson.annotations.SerializedName;
 
 public class RetroApp {
-    private float version;
+    @SerializedName("version:")
+    private Double version;
 
     @SerializedName("app_meta_name")
     private String appName;
 
-    public RetroApp(float version, String appName) {
+    public RetroApp(Double version, String appName) {
         this.version = version;
         this.appName = appName;
     }
 
-    public float getVersion() {
+    public Double getVersion() {
         return version;
     }
 
-    public void setVersion(float version) {
+    public void setVersion(Double version) {
         this.version = version;
     }
 

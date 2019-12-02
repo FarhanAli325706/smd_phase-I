@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
@@ -17,6 +18,7 @@ import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
+import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -37,6 +39,7 @@ import com.smsaz.fitnessenthusiast.R;
 import com.smsaz.fitnessenthusiast.login.model.LoginModel;
 import com.smsaz.fitnessenthusiast.login.presenter.LoginPresenter;
 import com.smsaz.fitnessenthusiast.signup.SignupActivity;
+import com.smsaz.store_in_shared_preferences_and_cache.SharedPreferencesAndCacheHandler;
 
 import java.util.Arrays;
 
@@ -142,9 +145,17 @@ public class LoginActivity extends AppCompatActivity implements ILoginActivity {
                             startActivity(new Intent(LoginActivity.this, ExercieList.class));
                         } else {
                             // If sign in fails, display a message to the user.
-                            Log.w(TAG, "signInWithCredential:failure", task.getException());
-                            Toast.makeText(LoginActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
+                            FirebaseUser user = firebaseAuth.getCurrentUser();
+                            if (user != null) {
+                                Toast.makeText(LoginActivity.this, "Welcome through FACEBOOK SIGN-IN", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(LoginActivity.this, ExercieList.class));
+                            } else {
+                                FirebaseAuth.getInstance().signOut();
+                                LoginManager.getInstance().logOut();
+                                Log.w(TAG, "signInWithCredential:failure", task.getException());
+                                Toast.makeText(LoginActivity.this, "Authentication failed." + task.getException().getMessage(),
+                                        Toast.LENGTH_SHORT).show();
+                            }
                         }
                     }
                 });
@@ -227,7 +238,10 @@ public class LoginActivity extends AppCompatActivity implements ILoginActivity {
 
                             Toast.makeText(LoginActivity.this, "Welcome through GOOGLE SIGN-IN", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(LoginActivity.this, ExercieList.class));
-//                            Toast.makeText(LoginActivity.this, "Login With Gmail Failed", Toast.LENGTH_SHORT).show();
+
+                            SharedPreferencesAndCacheHandler sharedPreferencesAndCacheHandler = new SharedPreferencesAndCacheHandler(LoginActivity.this);
+                            sharedPreferencesAndCacheHandler.storeData(user.getEmail());
+                            //                            Toast.makeText(LoginActivity.this, "Login With Gmail Failed", Toast.LENGTH_SHORT).show();
 
 //                            startActivity(new Intent(context, HomeActivity.class));
 

@@ -18,6 +18,8 @@ public class MainScreen extends AppCompatActivity {
         setContentView(R.layout.activity_main_screen);
         this.getSupportActionBar().hide();
 
+        // TODO: 12/2/2019 Change title name of each activity
+
         Stetho.initializeWithDefaults(this);
 
         RetrofitCommunicator retrofitCommunicator = new RetrofitCommunicator();

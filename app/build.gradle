@@ -43,5 +43,6 @@ dependencies {
     implementation project(path: ':retrofit_communication')
 
     implementation 'com.facebook.stetho:stetho:1.5.1'
+    compile project(path: ':store_in_shared_preferences_and_cache')
 
 }

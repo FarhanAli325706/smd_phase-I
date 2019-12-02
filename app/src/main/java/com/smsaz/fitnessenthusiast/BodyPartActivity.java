@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.notificationmodule.SetReminder;
 import com.google.android.material.navigation.NavigationView;
 import com.smsaz.fitnessenthusiast.faq.FAQActivity;
 
@@ -62,7 +63,8 @@ public class BodyPartActivity extends AppCompatActivity {
                         startActivity(intent);
                         break;
                     case R.id.reminder:
-                        Toast.makeText(BodyPartActivity.this, "My Cart",Toast.LENGTH_SHORT).show();
+                        intent=new Intent(BodyPartActivity.this, SetReminder.class);
+                        startActivity(intent);
                         break;
                     default:
                         return true;

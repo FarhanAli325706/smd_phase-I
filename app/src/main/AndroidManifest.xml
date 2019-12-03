@@ -10,18 +10,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UserEditScreenActivity"></activity>
         <activity android:name=".faq.FAQActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ExercieList" />
         </activity>
-        <activity android:name=".BodyPartActivity" />
-        <activity android:name=".ExercieList" />
+        <activity
+            android:name=".BodyPartActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.smsaz.fitnessenthusiast.ExercieList" />
+        </activity>
+        <activity
+            android:name=".ExercieList"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ExerciseActivity"
             android:configChanges="orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ExercieList" />
+        </activity>
         <activity android:name=".NutritionGuidelines">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -34,8 +47,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".login.view.LoginActivity"></activity>
-        <activity android:name=".signup.SignupActivity" />
+        <activity android:name=".login.view.LoginActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.smsaz.fitnessenthusiast.MainScreen" />
+        </activity>
+        <activity android:name=".signup.SignupActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.smsaz.fitnessenthusiast.MainScreen" />
+        </activity>
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -57,6 +78,10 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="firebase_performance_logcat_enabled"
+            android:value="true" />
     </application>
 
 </manifest>

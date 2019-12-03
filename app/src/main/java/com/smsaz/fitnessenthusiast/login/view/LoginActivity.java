@@ -3,12 +3,14 @@ package com.smsaz.fitnessenthusiast.login.view;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NavUtils;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -46,7 +48,27 @@ import java.util.Arrays;
 
 public class LoginActivity extends AppCompatActivity implements ILoginActivity {
 
-    //TODO: Implement Back Button in Login Activity
+    //Added for Back button implementation
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(FirebaseAuth.getInstance().getCurrentUser() != null){
+            Toast.makeText(this, "You are already signed in", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(LoginActivity.this,ExercieList.class));
+
+        }
+    }
 
     private Intent exerciesIntent;
     private LoginPresenter loginPresenter;
@@ -69,8 +91,13 @@ public class LoginActivity extends AppCompatActivity implements ILoginActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_login);
+
+        //Added for Back button implementation
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); // In `OnCreate();`
+
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -143,12 +170,14 @@ public class LoginActivity extends AppCompatActivity implements ILoginActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = firebaseAuth.getCurrentUser();
+
                             Toast.makeText(LoginActivity.this, "Welcome through FACEBOOK SIGN-IN", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(LoginActivity.this, ExercieList.class));
                         } else {
                             // If sign in fails, display a message to the user.
                             FirebaseUser user = firebaseAuth.getCurrentUser();
                             if (user != null) {
+
                                 Toast.makeText(LoginActivity.this, "Welcome through FACEBOOK SIGN-IN", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(LoginActivity.this, ExercieList.class));
                             } else {
@@ -223,8 +252,6 @@ public class LoginActivity extends AppCompatActivity implements ILoginActivity {
             callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
-    //TODO: Overriding onStart to check if user is already signed in or not
-
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
         Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
 
@@ -240,16 +267,9 @@ public class LoginActivity extends AppCompatActivity implements ILoginActivity {
 
                             Toast.makeText(LoginActivity.this, "Welcome through GOOGLE SIGN-IN", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(LoginActivity.this, ExercieList.class));
-
-                            SharedPreferencesAndCacheHandler sharedPreferencesAndCacheHandler = new SharedPreferencesAndCacheHandler(LoginActivity.this);
-                            sharedPreferencesAndCacheHandler.storeData(user.getEmail());
                             //                            Toast.makeText(LoginActivity.this, "Login With Gmail Failed", Toast.LENGTH_SHORT).show();
 
 //                            startActivity(new Intent(context, HomeActivity.class));
-
-                            //TODO: Do what we want to do with the signed in user
-                            //TODO: If this is sign-in, show the UI of this user.
-                            //TODO: If this is sign-up, store credentials of this user in firebase database.
 
                         } else {
                             // If sign in fails, display a message to the user.

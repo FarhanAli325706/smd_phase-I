@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -20,6 +21,8 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.smsaz.fitnessenthusiast.faq.FAQActivity;
+import com.smsaz.fitnessenthusiast.login.view.LoginActivity;
+import com.smsaz.store_in_shared_preferences_and_cache.SharedPreferencesAndCacheHandler;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -39,16 +42,29 @@ public class ExercieList extends AppCompatActivity {
     private ExerciseAdapter exercise_Adapter;
 
     @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercie_list);
+
+        if(FirebaseAuth.getInstance().getCurrentUser() != null)
+        {
+            SharedPreferencesAndCacheHandler sharedPreferencesAndCacheHandler = new SharedPreferencesAndCacheHandler(ExercieList.this);
+            sharedPreferencesAndCacheHandler.storeData(FirebaseAuth.getInstance().getCurrentUser().getEmail());
+
+            Log.w("Current User", sharedPreferencesAndCacheHandler.retreiveData());
+        }
+
+
         dl = findViewById(R.id.activity_main);
         t = new ActionBarDrawerToggle(this, dl, R.string.Open, R.string.Close);
         t.setDrawerIndicatorEnabled(true);
         dl.addDrawerListener(t);
         t.syncState();
-
-        // TODO: 12/1/2019 LOGOUT BUTTON IMPLEMENTATION if their is a user logged in
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         nv = findViewById(R.id.nv);
@@ -76,10 +92,7 @@ public class ExercieList extends AppCompatActivity {
                     default:
                         return true;
                 }
-
-
                 return true;
-
             }
         });
 
@@ -117,9 +130,22 @@ public class ExercieList extends AppCompatActivity {
         if (id == R.id.sign_out) {
             FirebaseAuth.getInstance().signOut();
             LoginManager.getInstance().logOut();
+
+            SharedPreferencesAndCacheHandler sharedPreferencesAndCacheHandler = new SharedPreferencesAndCacheHandler(ExercieList.this);
+            sharedPreferencesAndCacheHandler.deleteData();
+
             startActivity(new Intent(ExercieList.this, MainScreen.class));
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        if(FirebaseAuth.getInstance().getCurrentUser() != null){
+            android.os.Process.killProcess(android.os.Process.myPid());
+            System.exit(1);
+        }
     }
 }

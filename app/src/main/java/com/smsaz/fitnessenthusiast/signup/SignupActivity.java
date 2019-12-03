@@ -3,11 +3,13 @@ package com.smsaz.fitnessenthusiast.signup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NavUtils;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -44,6 +46,31 @@ import java.util.Arrays;
 
 public class SignupActivity extends AppCompatActivity {
 
+    //Added for Back button implementation
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    // TODO: 12/3/2019 mipmap 
+    
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(FirebaseAuth.getInstance().getCurrentUser() != null){
+            Toast.makeText(this, "You are already signed in", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(SignupActivity.this,ExercieList.class));
+
+        }
+    }
+
+
     FirebaseAuth firebaseAuth;
     private LoginButton facebookSignInButton;
     private CallbackManager callbackManager;
@@ -55,12 +82,13 @@ public class SignupActivity extends AppCompatActivity {
     private int RC_SIGN_IN = 1;
     //EXTRA CODE FOR GOOGLE SIGN-IN ENDED
 
-    //TODO: Implement Back Button in Signup Activity
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+        //Added for Back button implementation
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); // In `OnCreate();`
+
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -216,8 +244,6 @@ public class SignupActivity extends AppCompatActivity {
         }
     }
 
-    //TODO: Overriding onStart to check if user is already signed in or not
-
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
         Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
 
@@ -233,10 +259,6 @@ public class SignupActivity extends AppCompatActivity {
 
                             Toast.makeText(SignupActivity.this, "Welcome through GOOGLE SIGN-IN", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(SignupActivity.this, ExercieList.class));
-
-                            //TODO: Do what we want to do with the signed in user
-                            //TODO: If this is sign-in, show the UI of this user.
-                            //TODO: If this is sign-up, store credentials of this user in firebase database.
 
                         } else {
                             // If sign in fails, display a message to the user.

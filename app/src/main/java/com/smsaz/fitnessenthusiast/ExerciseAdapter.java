@@ -44,7 +44,12 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.Exerci
             intent.putExtra("e_name",this.exercise_Name_List.get(position).getName());
             context.startActivity(intent);
         });
-        
+        holder.image_View.setOnClickListener((view)->{
+            Intent intent=new Intent(context,BodyPartActivity.class);
+            intent.putExtra("e_name",this.exercise_Name_List.get(position).getName());
+            context.startActivity(intent);
+        });
+
     }
 
     @Override

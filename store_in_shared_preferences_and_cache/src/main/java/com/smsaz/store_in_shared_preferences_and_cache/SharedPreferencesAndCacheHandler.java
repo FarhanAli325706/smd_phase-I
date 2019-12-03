@@ -30,8 +30,6 @@ public class SharedPreferencesAndCacheHandler {
         editor.apply();
         this.cacheFile = getTempFile(context,"my_cache");
 
-        // TODO: 12/2/2019 cache file not being read by device explorer 
-
         FileWriter fstream = null;
         try {
             fstream = new FileWriter(cacheFile);
@@ -60,10 +58,27 @@ public class SharedPreferencesAndCacheHandler {
         editor.commit();
     }
 
-    public void deleteDataFromCache(){
-        if(cacheFile != null){
-            cacheFile.delete();
-            cacheFile = null;
+    public void deleteDataFromCache() {
+        try {
+            File dir = this.context.getCacheDir();
+            SharedPreferencesAndCacheHandler.deleteDir(dir);
+        } catch (Exception e) { e.printStackTrace();}
+    }
+
+    public static boolean deleteDir(File dir) {
+        if (dir != null && dir.isDirectory()) {
+            String[] children = dir.list();
+            for (int i = 0; i < children.length; i++) {
+                boolean success = deleteDir(new File(dir, children[i]));
+                if (!success) {
+                    return false;
+                }
+            }
+            return dir.delete();
+        } else if(dir!= null && dir.isFile()) {
+            return dir.delete();
+        } else {
+            return false;
         }
     }
 

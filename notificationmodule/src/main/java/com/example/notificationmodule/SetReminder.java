@@ -23,6 +23,7 @@ import java.util.Calendar;
 public class SetReminder extends AppCompatActivity {
     EditText hrs;
     EditText mins;
+    EditText sec;
     private NotificationManager mNotificationManager;
     private static final int NOTIFICATION_ID = 0;
     private static final String PRIMARY_CHANNEL_ID =
@@ -36,6 +37,7 @@ public class SetReminder extends AppCompatActivity {
         setContentView(R.layout.activity_set_reminder);
         hrs=findViewById(R.id.hours);
         mins=findViewById(R.id.minutes);
+        sec=findViewById(R.id.second);
         final AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         Intent notifyIntent = new Intent(this, AlaramReceiver.class);
         final PendingIntent notifyPendingIntent = PendingIntent.getBroadcast
@@ -48,7 +50,8 @@ public class SetReminder extends AppCompatActivity {
                 Calendar calendar=Calendar.getInstance();
                 int hours= Integer.parseInt(hrs.getText().toString());
                 int min=Integer.parseInt(mins.getText().toString());
-                int totalTime=(hours*3600)+(min*60);
+                int second=Integer.parseInt(sec.getText().toString());
+                int totalTime=(hours*3600)+(min*60)+second;
                 calendar.add(Calendar.SECOND,totalTime);
                 alarmManager.setExact(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),notifyPendingIntent);
 

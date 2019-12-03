@@ -1,5 +1,5 @@
 package com.smsaz.fitnessenthusiast;
-
+//TODO recycler issue
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
